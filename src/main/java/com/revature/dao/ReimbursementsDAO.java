@@ -54,9 +54,8 @@ private static ReimbursementsDAO reimbursementDao = null;
 	public static Reimbursements addReimbursement(String body) throws Exception{
 		Gson g = new Gson();
 		Reimbursements r = g.fromJson(body, Reimbursements.class);
-		System.err.println("jsonData: "+r.getId());
 		//Reimbursements reimbursement = new Reimbursements(0, 0, null, 0, null, null);
-		String rStmt = "INSERT INTO public.reimbursements( amount, status, employee_id, purchase_type, description) VALUES ( ?, ?, ?, ?, ?)";
+		String rStmt = "INSERT INTO public.reimbursements( amount, status, employee_id, purchase_type, description, employee_name) VALUES ( ?, ?, ?, ?, ?, ?)";
 		pStmt = conn.prepareStatement(rStmt);
 		//pStmt.setInt(1, r.getId());
 		pStmt.setDouble(1, r.getAmount());
@@ -64,6 +63,7 @@ private static ReimbursementsDAO reimbursementDao = null;
 		pStmt.setInt(3, r.getEmployeeId());
 		pStmt.setString(4, r.getPurchaseType());
 		pStmt.setString(5, r.getDescription());
+		pStmt.setString(6, r.getEmpName());
 		
 		pStmt.executeUpdate();
 		
@@ -87,6 +87,7 @@ private static ReimbursementsDAO reimbursementDao = null;
         	r.setEmployeeId(rs.getInt("employee_id"));
         	r.setPurchaseType(rs.getString("purchase_type"));
         	r.setDescription(rs.getString("description"));
+        	r.setEmpName(rs.getString("employee_name"));
         	reimbursements.add(r);
         } 
         return reimbursements;

@@ -16,10 +16,11 @@ function actions(e){
 	let description = document.getElementById("desc").value;
     let amount = document.getElementById("amount").value;
 	let purchaseType = document.getElementById("purType").value;
-	let employeeId = localStorage.getItem('employeeId')
+	let employeeId = localStorage.getItem('employeeId');
+	let empName = localStorage.getItem('name')
 	if(e.target==submitBtn){
 		e.preventDefault();
-		submitForm(description, Number(amount), String(purchaseType), Number(employeeId), status);
+		submitForm(description, Number(amount), String(purchaseType), Number(employeeId), status, empName);
 	}
 	e.target==showHistory && goToHostory();
 }
@@ -27,13 +28,15 @@ function actions(e){
 
 
 
-const submitForm = async (description, amount,purchaseType, employeeId, status)=>{
+const submitForm = async (description, amount,purchaseType, employeeId, status, empName)=>{
 	let formData ={
 	description,
 	amount,
 	purchaseType,
 	employeeId,
-	status:'pending'
+	status:'pending',
+	empName
+	
 } 
 	try{
 		fetch(`http://localhost:7000/api/reimursements`, {

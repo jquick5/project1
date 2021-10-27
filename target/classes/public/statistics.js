@@ -61,11 +61,11 @@ getHistory().then((d) => {
   d.forEach((x) => {
     if (
       arr2.some((val) => {
-        return val["employeeId"] == x["employeeId"];
+        return val["empName"] == x["empName"];
       })
     ) {
       arr2.forEach((k) => {
-        if (k["employeeId"] === x["employeeId"]) {
+        if (k["empName"] === x["empName"]) {
           k["occurrence"]++;
         }
       });
@@ -74,15 +74,17 @@ getHistory().then((d) => {
       // it with the present iteration key's value and
       // set the occurrence to 1
       let a = {};
-      a["employeeId"] = x["employeeId"];
+      a["empName"] = x["empName"];
       a["occurrence"] = 1;
       arr2.push(a);
     }
   });
 
+console.log(arr2)
+
   arr2 = arr2.sort((a, b) => (a.occurrence < b.occurrence ? 1 : -1));
 
-  employee = arr2[0].employeeId;
+  employee = arr2[0].empName;
 
-  topEmployee.innerText = `Employee #: ${employee}`;
+  topEmployee.innerText = `Employee : ${employee}`;
 });

@@ -81,7 +81,7 @@ getHistory().then((d) => {
 		if(pendingCount>0 &&d[i].status == 'pending'){
 		tableBody.innerHTML += `<tr id='${d[i.id]}'><td>${d[i].id}</td><td>${
 			d[i].employeeId
-		}</td><td>$${d[i].amount.toFixed(2)}</td><td>${d[i].status}</td><td>${
+		} ${d[i].empName}</td><td>$${d[i].amount.toFixed(2)}</td><td>${d[i].status}</td><td>${
 			d[i].description
 		}</td><td>${d[i].purchaseType}</td><td><button id="${
 			d[i.id]

@@ -7,13 +7,14 @@ public class Reimbursements {
 	private int employeeId;
 	private String status;
 	private String description;
+	private String empName;
 	
 	
 
 	
 
 	public Reimbursements(int id, double amount, String purchaseType, int employeeId, String status,
-			String description) {
+			String description, String empName) {
 		super();
 		this.id = id;
 		this.amount = amount;
@@ -21,7 +22,10 @@ public class Reimbursements {
 		this.employeeId = employeeId;
 		this.status = status;
 		this.description = description;
+		this.empName = empName;
 	}
+	
+	
 	
 	public Reimbursements() {
 		super();
@@ -37,6 +41,20 @@ public class Reimbursements {
 
 	public void setDescription(String description) {
 		this.description = description;
+	}
+	
+	
+
+
+
+	public String getEmpName() {
+		return empName;
+	}
+
+
+
+	public void setEmpName(String empName) {
+		this.empName = empName;
 	}
 
 
@@ -87,8 +105,12 @@ public class Reimbursements {
 	@Override
 	public String toString() {
 		return "Reimbursements [id=" + id + ", amount=" + amount + ", purchaseType=" + purchaseType + ", employeeId="
-				+ employeeId + ", status=" + status + ", description=" + description + "]";
+				+ employeeId + ", status=" + status + ", description=" + description + ", empName=" + empName + "]";
 	}
+
+
+
+	
 
 	
 
