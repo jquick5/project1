@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+	<meta charset="UTF-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<link rel="stylesheet" href="bootstrap.min.css">
+	<title>Home</title>
+</head>
+
+<body>
+	<nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+		<div class="container-fluid ms-5 space-between">
+			<a class="navbar-brand" href="/">IOSOFT</a>
+			<button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav"
+				aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+				<span class="navbar-toggler-icon"></span>
+			</button>
+			<div class="collapse navbar-collapse" id="navbarNav">
+				<ul class="navbar-nav">
+					<li class="nav-item">
+						<a id="showHistory"class="nav-link active" aria-current="page" href="employeehistory.html">Home</a>
+					</li>
+				</ul>
+			</div>
+		</div>
+	</nav>
+	<main class="container">
+		<div class="text-center">
+			<h1 class="text-center mt-2">Welcome to iosoft's Employee Reimbursement Portal</h1>
+			<h4 class='my-3'>Please fill out the reimbursement form below</h4>
+			<hr/>
+			<form class="card shadow rounded p-4" id="reForm">
+				<div class="mb-3">
+					<label for="exampleInputEmail1" class="form-label">Description</label>
+					<input type="text" class="form-control" id="desc" aria-describedby="emailHelp">
+					<div id="emailHelp" class="form-text">Please give a breif description of what you purchased.</div>
+				</div>
+				<div class="mb-3">
+					<label for="exampleInputPassword1" class="form-label">Amount</label>
+					<input type="text" class="form-control" id="amount">
+				</div>
+
+				<select class="form-select my-2" aria-label="Default select example" id="purType">
+					<option selected>Select Purchase Type</option>
+					<option value="Travel">Travel</option>
+					<option value="Food">Food</option>
+					<option value="Office Supplies">Office Supplies</option>
+				</select>
+
+				<button class="btn btn-primary" id="submitBtn">Submit</button>
+			</form>
+		</div>
+		<div class="mt-5">
+			<span>If you would like to see your reimbursement history, please click <a
+					href="./employeehistory.html">here</a></span>
+
+		</div>
+		<div class="alert alert-success mt-5" role="successAlert"id="successAlert">
+			Reimbursement request sent
+		</div>
+
+	</main>
+	<script src="./main.js"></script>
+</body>
+
+</html>

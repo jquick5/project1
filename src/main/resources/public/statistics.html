@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+	<meta charset="UTF-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<link rel="stylesheet" href="bootstrap.min.css">
+	<title>Statistics</title>
+</head>
+
+<body>
+	<nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+		<div class="container-fluid ms-5 space-between">
+			<a class="navbar-brand" href="/">IOSOFT</a>
+			<button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav"
+				aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+				<span class="navbar-toggler-icon"></span>
+			</button>
+			<div class="collapse navbar-collapse" id="navbarNav">
+				<ul class="navbar-nav">
+					<li class="nav-item">
+						<a class="nav-link active" aria-current="page" href="/">Home</a>
+					</li>
+				</ul>
+			</div>
+		</div>
+	</nav>
+	<main class='container'>
+		<div class="text-center">
+			<h1 class="text-center mt-5">Reimbursement Statistics</h1>
+			<hr />
+			<div class="card text-center m-5 rounded shadow">
+				<div class="card-header">
+					Statistics
+				</div>
+				<div class="card-body">
+					<h5 class="card-title">Total Approved Requests:</h5>
+					<p class="card-text" id="totalReq"></p>
+					<hr/>
+					<h5 class="card-title">Total dollar amount of Payouts:</h5>
+					<p class="card-text" id="totalAmount"></p>
+					<hr/>
+					<h5 class="card-title">Average dollar amount of payouts:</h5>
+					<p class="card-text" id="aveAmount"></p>
+					<hr/>
+					<h5 class="card-title">Top Payout Type:</h5>
+					<p class="card-text" id='topPayout'></p>
+					<hr/>
+					<h5 class="card-title">Employee With the Most Requests:</h5>
+					<p class="card-text" id='topEmployee'></p>
+					
+				</div>
+				<div class="card-footer text-muted">
+					*For internal use only
+				</div>
+			</div>
+			<div>
+				<a href="./managerview.html" class='btn btn-dark rounded'>Back to Manager's Portal</a>
+			</div>
+		</div>
+	</main>
+
+<script src="./statistics.js"></script>
+</body>
+
+</html>

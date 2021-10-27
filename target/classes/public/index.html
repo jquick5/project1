@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+	<meta charset="UTF-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<link rel="stylesheet" href="bootstrap.min.css">
+	<title>Home</title>
+</head>
+
+<body>
+	<nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+		<div class="container-fluid ms-5">
+			<a class="navbar-brand" href="/">IOSOFT</a>
+			<button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav"
+				aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+				<span class="navbar-toggler-icon"></span>
+			</button>
+			<div class="collapse navbar-collapse" id="navbarNav">
+				<ul class="navbar-nav">
+					<li class="nav-item">
+						<a class="nav-link active" aria-current="page" href="/">Home</a>
+					</li>
+				</ul>
+			</div>
+		</div>
+	</nav>
+	<main class="container">
+		<div class="text-center">
+			<h1 class="text-center my-5">Welcome to iosoft's Employee Reimbursement Portal</h1>
+			<h4>Please login to continue</h4>
+			<!--<a href="login.html" class="btn btn-dark rounded">Login</a>-->
+		</div>
+		<form class="card shadow rounded p-4 mt-5">
+			<div class="mb-3">
+				<label for="exampleInputEmail1" class="form-label">Email address</label>
+				<input type="email" class="form-control" id="email" aria-describedby="emailHelp">
+			</div>
+			<div class="mb-3">
+				<label for="exampleInputPassword1" class="form-label">Password</label>
+				<input type="password" class="form-control" id="password">
+			</div>
+			<a href="./main.html"class="btn btn-primary" id="loginBtn">Submit</a>
+		</form>
+		<hr/>
+		<h2 id="myH2"></h2>
+	</main>
+<script src="index.js"></script>
+</body>
+
+</html>
