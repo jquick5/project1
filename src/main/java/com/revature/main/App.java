@@ -14,14 +14,14 @@ public class App {
 
 	public static void main(String[] args) {
 		
-		//Logger logger = LoggerFactory.getLogger(App.class);
+		Logger logger = LoggerFactory.getLogger(App.class);
 		
 		//Create server->add static files -> Start application server
 		Javalin app = Javalin.create(config -> {
             config.addStaticFiles("/public", Location.CLASSPATH);
         }).start(7000);
 		
-		//logger.info("App started");
+		logger.info("App started");
 		
 		//Finds an employee by their email
 		app.get("api/employees/{email}", EmployeeController.getEmployee);

@@ -1,8 +1,12 @@
 package com.revature.dao;
 
+
 import java.sql.*;
 import java.util.ArrayList;
 import java.util.List;
+
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 
 import com.google.gson.Gson;
 
@@ -11,6 +15,9 @@ import com.revature.model.Reimbursements;
 
 
 public class ReimbursementsDAO {
+	
+	private static Logger logger = LoggerFactory.getLogger(ReimbursementsDAO.class);
+
 	
 	public static Connection conn = null;
 	private static Statement stmt = null;
@@ -32,7 +39,7 @@ private static ReimbursementsDAO reimbursementDao = null;
 		conn = DriverManager.getConnection("jdbc:postgresql://jinqxsoftware.cyagmya19qqn.us-east-2.rds.amazonaws.com/jinqxsoftware", "postgres",
 				"postgres123");
 		if(conn!=null) {
-			System.out.println("Connected to database");
+			logger.info("Connected to database");
 		}
 	}
 
@@ -49,9 +56,11 @@ private static ReimbursementsDAO reimbursementDao = null;
 		if (conn != null) {
 			conn.close();
 		}
+		logger.info("Connection Closed");
 	}
 	
 	public static Reimbursements addReimbursement(String body) throws Exception{
+		logger.info("Adding new Reimbursement");
 		Gson g = new Gson();
 		Reimbursements r = g.fromJson(body, Reimbursements.class);
 		//Reimbursements reimbursement = new Reimbursements(0, 0, null, 0, null, null);
@@ -72,6 +81,7 @@ private static ReimbursementsDAO reimbursementDao = null;
 
 
 	public List<Reimbursements> getEmpHistory() throws Exception{
+		logger.info("Getting Reimbursement History");
 		List<Reimbursements> reimbursements = new ArrayList<Reimbursements>();
         
         String getHistory = "SELECT * FROM public.reimbursements";
@@ -96,6 +106,7 @@ private static ReimbursementsDAO reimbursementDao = null;
 
 
 	public int approve(String id) throws Exception{
+		logger.info("Approving Request");
 		int status = 0;
 		String approveQuery = "UPDATE public.reimbursements SET status='approved' WHERE id="+id;
 		pStmt = conn.prepareStatement(approveQuery);
@@ -104,6 +115,7 @@ private static ReimbursementsDAO reimbursementDao = null;
 	}
 	
 	public int deny(String id) throws Exception{
+		logger.info("Denying Request");
 		int status = 0;
 		String denyQuery = "UPDATE public.reimbursements SET status='denied' WHERE id="+id;
 		pStmt = conn.prepareStatement(denyQuery);

@@ -2,9 +2,15 @@ package com.revature.dao;
 
 import java.sql.*;
 
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
+
+import com.revature.main.App;
 import com.revature.model.Employee;
 
 public class EmployeeDAO {
+	
+	private static Logger logger = LoggerFactory.getLogger(EmployeeDAO.class);
 
 	public static Connection conn = null;
 	private static Statement stmt = null;
@@ -27,7 +33,7 @@ public class EmployeeDAO {
 		conn = DriverManager.getConnection("jdbc:postgresql://jinqxsoftware.cyagmya19qqn.us-east-2.rds.amazonaws.com/jinqxsoftware", "postgres",
 				"postgres123");
 		if(conn!=null) {
-			System.out.println("Connected to database");
+			logger.info("Connecting to database");
 		}
 	}
 
@@ -44,13 +50,15 @@ public class EmployeeDAO {
 		if (conn != null) {
 			conn.close();
 		}
+		logger.info("Closing connection");
 	}
 	
 	public static Employee getAllEmployees(String email) throws Exception {
-		System.out.println("Email: "+email);
+		logger.info("Getting Employee");
 		Employee employee =new Employee(0, null, null, null, null);
         
         String getEmployee = "SELECT * FROM employee WHERE email= "+"'"+email+"'";
+        //String getEmployee = "SELECT * FROM employee WHERE email="+email;
         
         
         		

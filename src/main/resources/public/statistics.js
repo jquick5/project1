@@ -70,9 +70,6 @@ getHistory().then((d) => {
         }
       });
     } else {
-      // If not! Then create a new object initialize
-      // it with the present iteration key's value and
-      // set the occurrence to 1
       let a = {};
       a["empName"] = x["empName"];
       a["occurrence"] = 1;
